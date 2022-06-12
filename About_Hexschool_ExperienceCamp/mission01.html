@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mission01</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #3F5D45;
+            text-decoration: none;
+        }
+
+        .secnordary {
+            color: #EAF0ED;
+            
+        }
+
+
+        body {
+            font-family: PingFang TC;
+        }
+
+        .mission01 {
+            width: 1024px;
+            margin: auto;
+            padding: 30px 42px 0;            
+        }
+
+        .top {
+            width: 940px;
+            height: 40px;
+            display: flex;
+            margin: 0 auto 30px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-logo {
+            height: 40px;
+        }
+
+        .top-logo img {
+            height: 100%;
+        }
+
+        .top-menu {
+            width: 319px;
+        }
+
+        .top-menu ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .top-menu a {
+            text-decoration: none;
+            font: 600 16px;
+            color: #3F5D45;
+        }
+
+        .top-menu img {
+            width: 24px;
+            height: 24px;
+        }
+
+
+        .banner {
+            width: 940px;
+            margin: auto;
+            margin-bottom: 60px;
+        }
+
+        .middle {
+            width: 940px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        .side-bar-item {
+            background-color: #3F5D45;
+            width: 300px;
+            height: 65px;
+            text-align: center;
+            line-height: 65px;
+            /* font: 600 24px; */
+            margin: 0px;
+        }
+
+        .side-bar a {
+            display: block;
+            width: 300px;
+            height: 65px;
+            background-color: #EAF0ED;
+            border: 1px solid #EAF0ED;
+            text-align: center;
+            line-height: 65px;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .poduct-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .product-item {
+            width: 300px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        
+        .img-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .img-box > img {
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        .img-box > div > img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 15px;
+        }
+
+        .img-box > div > p {
+            position: absolute;
+            top: 0;
+            margin-left: 30px;
+            writing-mode: vertical-lr;
+            letter-spacing: 0.25em;
+            background-color: #3F5D45;
+            padding: 0.7em 0.5em;
+        }
+
+        .product-item-info {
+            display: flex;
+            height: 56px;
+            background-color: #FFFFFF;
+            justify-content: space-around;
+            line-height: 56px;
+        }
+
+        .product-item-name {
+            width: 173px;
+            height: 56px;
+            text-align: center;
+            display: block;
+            border-right: 1px solid #EAF0ED;
+        }
+
+        .product-item-price {
+            width: 127px;
+            height: 56px;
+            text-align: center;
+            display: block;            
+        }
+
+        .shopping-cart {
+            height: 65px;
+            background-color: #EAF0ED;
+            text-align: center;
+            line-height: 65px;
+        }
+
+
+        .footer{
+            width: 940px;
+            margin: auto;    
+            padding-bottom: 60px;
+            position: relative;
+        }
+
+        .footer .container{
+            display: flex;
+            position:absolute;
+            right: 0;
+            top: 0;
+            text-align: center;            
+        }
+        .container a{
+            display: block;
+            width: 60px;
+            height: 60px;        
+            border: 1px solid#EAF0ED;
+            box-sizing: border-box;
+            line-height: 60px;
+        }
+        .container ul{
+            display: flex;            
+        }
+        .container img{
+            padding: 18px;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="mission01">
+        <div class="top">
+            <div class="top-logo">
+                <a href="#">
+                    <img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/logo-all-dark.svg"alt="">
+                </a>
+            </div>
+
+            <nav class="top-menu">
+                <ul>
+                    <li><a href="#">首頁</a> </li>
+                    <li><a href="#">甜點</a> </li>
+                    <li><a href="#">登入</a> </li>
+                    <a href="#"><img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/shopping_cart.png" alt=""></a>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="banner">
+            <img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/banner.png"
+                alt="">
+        </div>
+ 
+
+        <div class="middle">
+            <div class="side-bar">
+                <p class="secnordary side-bar-item">甜點類別</p>
+                <a href="#"><b>所有甜點 (48) </b></a>
+                <a href="#"><b>本日精選 (10) </b></a>
+                <a href="#"><b>人氣推薦 (26) </b></a>
+                <a href="#"><b>新品上市 (12) </b></a>
+            </div>
+            <div class="poduct-group">
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/p-1.png"
+                            alt="">
+                        <div>
+                            <p class="secnordary">本日精選</p>
+                            <img class="favorite"
+                                src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/favorite_border.png"
+                                alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="product-item-info">
+                        <div class="product-item-name">
+                            <p>焦糖馬卡龍</p>
+                        </div>
+                        <div class="product-item-price">
+                            <p>NT$ 450</p>
+                        </div>
+                    </div>
+                    <div class="shopping-cart">
+                        <a href="#">加入購物車</a>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/p-2.png"
+                        alt="">
+                        <div>
+                            <p class="secnordary">本日精選</p>
+                            <img class="favorite"
+                                src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/favorite_border.png"
+                                alt="">
+                        </div>
+                    </div>
+
+                    <div class="product-item-info">
+                        <div class="product-item-name">
+                            <p>焦糖馬卡龍</p>
+                        </div>
+                        <div class="product-item-price">
+                            <p>NT$ 450</p>
+                        </div>
+                    </div>
+                    <div class="shopping-cart">
+                        <a href="#">加入購物車</a>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/p-3.png"
+                        alt="">
+                        <div>
+                            <p class="secnordary">本日精選</p>
+                            <img class="favorite"
+                                src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/favorite_border.png"
+                                alt="">
+                        </div>
+
+                    </div>
+
+                    <div class="product-item-info">
+                        <div class="product-item-name">
+                            <p>焦糖馬卡龍</p>
+                        </div>
+                        <div class="product-item-price">
+                            <p>NT$ 450</p>
+                        </div>
+                    </div>
+                    <div class="shopping-cart">
+                        <a href="#">加入購物車</a>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/p-4.png"
+                        alt="">
+                        <div>
+                            <p class="secnordary">本日精選</p>
+                            <img class="favorite"
+                                src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/favorite_border.png"
+                                alt="">
+                        </div>
+
+                    </div>
+
+                    <div class="product-item-info">
+                        <div class="product-item-name">
+                            <p>焦糖馬卡龍</p>
+                        </div>
+                        <div class="product-item-price">
+                            <p>NT$ 450</p>
+                        </div>
+                    </div>
+                    <div class="shopping-cart">
+                        <a href="#">加入購物車</a>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/p-5.png"
+                        alt="">
+                        <div>
+                            <p class="secnordary">本日精選</p>
+                            <img class="favorite"
+                                src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/favorite_border.png"
+                                alt="">
+                        </div>
+
+                    </div>
+                    <div class="product-item-info">
+                        <div class="product-item-name">
+                            <p>焦糖馬卡龍</p>
+                        </div>
+                        <div class="product-item-price">
+                            <p>NT$ 450</p>
+                        </div>
+                    </div>
+                    <div class="shopping-cart">
+                        <a href="#">加入購物車</a>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="img-box">
+                        <img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/p-6.png"
+                        alt="">
+                        <div>
+                            <p class="secnordary">本日精選</p>
+                            <img class="favorite"
+                                src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/favorite_border.png"
+                                alt="">
+                        </div>
+                    </div>
+
+                    <div class="product-item-info">
+                        <div class="product-item-name">
+                            <p>焦糖馬卡龍</p>
+                        </div>
+                        <div class="product-item-price">
+                            <p>NT$ 450</p>
+                        </div>
+                    </div>
+                    <div class="shopping-cart">
+                        <a href="#">加入購物車</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <div class="container">
+                <a href="#"><img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/arrow_left.png" alt=""></a>                
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+                <a href="#"><img src="https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/student-week1/arrow_right.png" alt=""></a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
