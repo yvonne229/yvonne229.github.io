@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOPLINE-切版</title>
+    <link rel="stylesheet" href="reset.css">
+    <script src="https://kit.fontawesome.com/3584b4af8a.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-size: 18px;
+            line-height: 1.2;                    
+        }
+        .wrap{
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 3em;
+        }
+        p{
+            font-size: 1.2em;
+        }
+
+
+        .header h2 {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .container {
+            display: flex;
+            margin: auto;
+            padding: 80px 0;
+        }
+
+        .container:nth-child(2n+1) {
+            flex-direction: row-reverse;
+        }
+
+        .container:nth-child(2),
+        .container:nth-child(3),
+        .container:nth-child(4) {
+            border-bottom: 1px solid #ccc;
+        }
+
+
+        .main {
+            width: 50%;
+        }
+
+        .main h3 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        .main p {
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+
+        .main ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .main li {
+            width: 50%;
+            padding: 5px;
+            box-sizing: border-box;
+            line-height: 1.5;
+            font-size: 0.9em;
+        }
+
+        .main li>i {
+            width: 14px;
+            height: 14px;
+            font-size: 15px;
+            color: rgb(0, 94, 255);
+            background-color: rgb(222, 235, 255);
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .main a {
+            text-decoration: none;
+        }
+
+        .main a>i {
+            color: rgb(15, 103, 255);
+        }
+
+        .sub {
+            width: 50%;
+
+        }
+
+        .sub img {
+            width: 100%;
+        }
+
+
+
+
+        .footer {
+            width: 100%;
+            background-color: rgb(244, 245, 247);
+            padding: 40px 0;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;            
+        }
+
+        .footer h2 {            
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .features-list {
+            width: 65%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer li {
+            width: 33.3333333%;            
+            padding: 50px 35px;
+            box-sizing: border-box;
+        }
+
+        .features-list div {
+            width: 120px;
+            height: 120px;
+            background-color: #fff;
+            filter: drop-shadow(0px 0px 5px rgba(202, 195, 195, 0.879));
+            border-radius: 50%;
+            margin: auto;
+            margin-bottom: 30px;
+            display: flex;
+        }
+
+        .features-list img {
+            width: 65%;
+            margin: auto;
+        }
+
+        .features-list h3 {
+            font-size: 1.1em;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .features-list p {
+            font-size: 0.8em;
+            line-height: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="wrap">
+    <div class="header">
+        <h2><strong>單一平台就能助你<br>在全台通路輕鬆開店創業</strong></h2>
+        <p>從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，<br>並能同步管理所有銷售管道，<strong>SHOPLINE</strong> 助你賣得更多、賣得更好！</p>
+    </div>
+
+    <section class="container">
+        <div class="main">
+            <h3><strong>免寫程式、多款版型<br>輕鬆打造全能電商網站</strong></h3>
+            <p>不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。</p>
+            <ul>
+                <li><i class="fa-solid fa-check"></i>豐富版型主題與字型搭配</li>
+                <li><i class="fa-solid fa-check"></i>RWD 響應式網頁設計</li>
+                <li><i class="fa-solid fa-check"></i>獨有網址 ＆ SSL 安全憑證</li>
+                <li><i class="fa-solid fa-check"></i>SEO 搜尋引擎優化</li>
+                <li><i class="fa-solid fa-check"></i>一頁商店</li>
+                <li><i class="fa-solid fa-check"></i>開放 HTML／CSS 編輯</li>
+            </ul>
+            <a href="#">看看開店祕技<i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="sub">
+            <img src="./pic/pic01.webp">
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="main">
+            <h3><strong>支持海內外電商<br>金流、物流一次搞定</strong></h3>
+            <p>支持在地及國際金流、物流串接服務，提供海內外顧客最便利的付款及送貨服務，加速消費者完成下單交易，大幅降低購物車放棄率！</p>
+            <ul>
+                <li><i class="fa-solid fa-check"></i>線上信用卡刷卡</li>
+                <li><i class="fa-solid fa-check"></i>第三方金流／行動支付整合</li>
+                <li><i class="fa-solid fa-check"></i>超商代碼／條碼繳費</li>
+                <li><i class="fa-solid fa-check"></i>多溫層宅配並指定運費</li>
+                <li><i class="fa-solid fa-check"></i>超商／宅配貨到付款</li>
+                <li><i class="fa-solid fa-check"></i>發票開立與串接</li>
+            </ul>
+            <a href="#">了解更多金物流 <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="sub">
+            <img src="./pic/pic02.png">
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="main">
+            <h3><strong>刺激下單，創造回購<br>行銷導流、促購模組任你玩</strong></h3>
+            <p>多元優惠活動、會員集客機制、網紅分潤以及直播購物等豐富功能，將電商行銷玩法一網打盡，助你成功優化行銷活動成效，刺激顧客下單、吸引鐵粉回購！</p>
+            <ul>
+                <li><i class="fa-solid fa-check"></i>超過 20 種優惠促銷功能</li>
+                <li><i class="fa-solid fa-check"></i>社群直播購物系統</li>
+                <li><i class="fa-solid fa-check"></i>會員分級／點數／購物金</li>
+                <li><i class="fa-solid fa-check"></i>Facebook／Google／LINE 廣告追蹤</li>
+                <li><i class="fa-solid fa-check"></i>Instagram 購物功能</li>
+                <li><i class="fa-solid fa-check"></i>Facebook／Instagram／LINE 對話式購物</li>
+            </ul>
+            <a href="#">看更多優惠模組<i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="sub">
+            <img src="./pic/pic03.png">
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="main">
+            <h3><strong>O2O 全通路無縫整併<br>輕鬆管理網店、門市以及其他通路</strong></h3>
+            <p>不論是網店拓展門市，還是門市想發展網路生意，從商品、庫存、訂單等各項虛實店舖的資料都能完善整併，輕鬆實現全通路會員經營到多店營運。</p>
+            <ul>
+                <li><i class="fa-solid fa-check"></i>門市 POS 系統</li>
+                <li><i class="fa-solid fa-check"></i>線上線下會員／商品／庫存整合</li>
+                <li><i class="fa-solid fa-check"></i>門市快速集客工具</li>
+                <li><i class="fa-solid fa-check"></i>O2O 即時銷售報表分析</li>
+                <li><i class="fa-solid fa-check"></i>進銷庫存／調撥／多店管理</li>
+                <li><i class="fa-solid fa-check"></i>串接 Shopee 蝦皮購物庫存</li>
+            </ul>
+            <a href="#">了解更多全通路整合<i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="sub">
+            <img src="./pic/pic04.png">
+        </div>
+    </section>
+</div>
+
+
+    <div class="footer">
+        <h2>更多功能與服務</h2>
+        <ul class="features-list">
+            <li>
+                <div><img src="./pic/more01.png"></div>
+                <h3>強大庫存及訂單系統</h3>
+                <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感。</p>
+            </li>
+            <li>
+                <div><img src="./pic/more02.png"></div>
+                <h3>即時化商店業績分析</h3>
+                <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
+            </li>
+            <li>
+                <div><img src="./pic/more03.png"></div>
+                <h3>多國語系、幣值切換</h3>
+                <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
+            </li>
+            <li>
+                <div><img src="./pic/more04.png"></div>
+                <h3>專業顧問線上支援</h3>
+                <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
+            </li>
+            <li>
+                <div><img src="./pic/more05.png"></div>
+                <h3>廣告行銷加值服務</h3>
+                <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
+            </li>
+            <li>
+                <div><img src="./pic/more06.png"></div>
+                <h3>老闆專屬成長社群</h3>
+                <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
