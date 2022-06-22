@@ -178,7 +178,7 @@ ul li:nth-child(even) h3{
         left: 70%;        
     }
     section>ul>li:nth-child(even)>.pic{
-        left: 0;
+        left: 10%;
     }
     section>ul>li:nth-child(even)>.feature{
         left: 21.5%;
