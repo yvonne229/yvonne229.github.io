@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yvonne's Profile</title>
+    <link rel="stylesheet" href="./profile.css">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1></h1>
+        <div class="pic">
+            <img src="" alt="">
+        </div>
+
+        <div class="info">
+            <ul>
+            </ul>
+        </div>
+
+        <div class="pic-group">
+        </div>
+    </div>
+
+
+
+    <script>
+        let title = "Profile";
+
+        let name = "Yvonne";
+        let email = "yvonne@gmail.com";
+        let school = "Build School";
+        let habbits = "Swimming";
+
+        const myImg = "./pic/E_05.jpg";
+
+        const imgArray = [
+            "./pic/01.jpg",
+            "./pic/02.jpg",
+            "./pic/03.jpg"
+        ];
+
+        // imgArray.forEach(function(item,i){
+        //     console.log(`${i}-${item}`)
+        // })
+
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = title;
+
+        let myimg = document.querySelector("img");
+        myimg.src = myImg;
+
+        let info = document.querySelector("ul");
+        info.innerHTML = `<li>Name: ${name}</li>
+                        <li>E-mail: ${email}</li>
+                        <li>School: ${school}</li>
+                        <li>Habbits: ${habbits}</li>`;
+        const picGroup = document.querySelector(".pic-group");
+
+        imgArray.forEach((jpg) => { picGroup.innerHTML += `<div class="pic-item"><img src="${jpg}"></div>`})
+
+    </script>
+    <img src="" alt="">
+</body>
+
+</html>
