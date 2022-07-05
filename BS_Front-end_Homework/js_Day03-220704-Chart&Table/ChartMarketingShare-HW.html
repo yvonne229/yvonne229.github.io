@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <canvas id="mkShare"></canvas>
+  <table class="table table-bordered table-striped">
+    <!-- <thead>
+            <tr>
+                <th>排名</th>
+                <th>公司名稱</th>
+                <th>國別</th>
+                <th>市佔率</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>台積電</td>
+                <td>台灣</td>
+                <td>53.1%</td>
+            </tr>
+        </tbody> -->
+  </table>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"
+    integrity="sha512-G8JE1Xbr0egZE5gNGyUm1fF764iHVfRXshIoUWCTPAbKkkItp/6qal5YAHXrxEu4HNfPTQs6HOu3D5vCGS1j3w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+  <script>
+
+    /*
+    const marketingShare = [
+        { Ranking: 1, Company: "台積電", Country: "台灣", Ratio: "53.1" },
+        { Ranking: 2, Company: "三星電子", Country: "韓國", Ratio: "17.3" },
+        { Ranking: 3, Company: "聯電", Country: "台灣", Ratio: "7.2" },
+        { Ranking: 4, Company: "格羅方德", Country: "美國", Ratio: "6.1" },
+        { Ranking: 5, Company: "中芯國際", Country: "中國", Ratio: "5.3" },
+        { Ranking: 6, Company: "華虹半導體", Country: "中國", Ratio: "2.6" },
+        { Ranking: 7, Company: "力積電", Country: "台灣", Ratio: "1.8" },
+        { Ranking: 8, Company: "世界先進", Country: "台灣", Ratio: "1.4" },
+        { Ranking: 9, Company: "高塔半導體", Country: "以色列", Ratio: "1.4" },
+        { Ranking: 10, Company: "東部高科", Country: "南韓", Ratio: "1" }
+    ];
+    */
+
+    const marketingShare = {
+      version: "v1.0",
+      publish: "2021/12/31",
+      report: "2021年全球晶圓代工市佔率",
+      titles: ["排名", "公司名稱", "國別", "市佔率"],
+      data: [
+        { Ranking: 1, Company: "台積電", Country: "台灣", Ratio: "53.1" },
+        { Ranking: 2, Company: "三星電子", Country: "韓國", Ratio: "17.3" },
+        { Ranking: 3, Company: "聯電", Country: "台灣", Ratio: "7.2" },
+        { Ranking: 4, Company: "格羅方德", Country: "美國", Ratio: "6.1" },
+        { Ranking: 5, Company: "中芯國際", Country: "中國", Ratio: "5.3" },
+        { Ranking: 6, Company: "華虹半導體", Country: "中國", Ratio: "2.6" },
+        { Ranking: 7, Company: "力積電", Country: "台灣", Ratio: "1.8" },
+        { Ranking: 8, Company: "世界先進", Country: "台灣", Ratio: "1.4" },
+        { Ranking: 9, Company: "高塔半導體", Country: "以色列", Ratio: "1.4" },
+        { Ranking: 10, Company: "東部高科", Country: "南韓", Ratio: "1" }
+      ]
+    }
+
+    let companies = [], data = [];
+
+    window.onload = function () {
+      marketingShare.data.forEach(corp => {
+        companies.push(corp.Company)
+        data.push(corp.Ratio)
+      })
+
+      drawPieChart(companies, data)
+      createTable()
+    }
+  </script>
+
+  <script>
+    //第一個參數為公司陣列, 第二個參數為資料陣列
+    function drawPieChart(companyArray, dataArray) {
+      //Pie Chart圓餅圖
+      let ctxPie = document.getElementById("mkShare");
+      var pieChart = new Chart(ctxPie, {
+        type: 'pie',  //pie, line,bar
+        data: {
+          labels: companyArray,
+          datasets: [{
+            data: dataArray,
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(255,75,50)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)',
+              'rgb(255, 138, 64)',
+              'rgb(142, 65, 64)',
+              'rgb(59, 72, 64)'
+            ]
+          }],
+        },
+        options: {
+          responsive: true,
+          title: {
+            display: true,
+            fontSize: 26,
+            text: '2021年全球晶圓代工市佔率%'
+          },
+          tooltips: {
+            mode: 'point',
+            intersect: true,
+          },
+          legend: {
+            position: 'bottom',
+            labels: {
+              fontColor: 'black',
+            }
+          }
+        }
+      });
+    }
+
+    function createTable() {
+      let thead = document.createElement('thead')
+      let theadTR = document.createElement('tr')
+      marketingShare.titles.forEach((el) => {
+        let th = document.createElement('th')
+        th.innerHTML = el
+        theadTR.appendChild(th)
+      })
+
+      thead.append(theadTR)
+      document.querySelector('.table').append(thead)
+
+
+
+      let tbody = document.createElement('tbody')
+      marketingShare.data.forEach((obj) => {
+        let tbodyTR = document.createElement('tr')
+
+        Object.values(obj).forEach((value) => {
+          let td = document.createElement('td')
+          td.innerHTML = value
+          tbodyTR.appendChild(td)
+        })
+
+        tbody.append(tbodyTR)
+      })
+
+      document.querySelector('.table').append(tbody)
+
+
+
+
+
+
+
+
+    }
+
+  </script>
+</body>
+
+</html>
