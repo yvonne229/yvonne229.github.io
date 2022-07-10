@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1A2B by Yvonne</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+
+    .container {
+      background-color: rgb(246, 243, 238);
+    }
+
+    .history {
+      height: 350px;
+      overflow: auto;
+    }
+
+    @media screen and (min-width:768px) {
+      .container {
+        margin-top: 5em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container border border-3">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 px-3">
+        <h1 class=" text-center text-primary mt-3 mb-4">猜數字遊戲 <br>(幾A幾B)</h1>
+
+        <div class="row g-0 justify-content-between mb-4">
+          <button class="start-Btn btn btn-primary col-4 rounded-0 ">開始</button>
+          <button class="clear-Btn btn btn-secondary col-4 rounded-0" disabled>放棄重來</button>
+          <button class="answer-Btn btn btn-success col-4 rounded-0 " disabled>看答案</button>
+        </div>
+
+        <div class="row g-0">
+          <input class="user-input col-10  border border-1 border-end-0 text-center" type="text"
+            placeholder="請輸入4個不重複的數字">
+          <button class="check-Btn btn btn-warning rounded-0 rounded-end col-2" disabled>猜!</button>
+        </div>
+
+        <div><img class="w-100" src="./IMG_4517.jpg"></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-8 px-5 pb-4">
+        <h2 class="text-center mt-4">歷史紀錄</h2>
+        <div class="history border border-3 p-2 "></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+
+  <script>
+    const startBtn = document.querySelector('.start-Btn')
+    const clearBtn = document.querySelector('.clear-Btn')
+    const answerBtn = document.querySelector('.answer-Btn')
+    const checkBtn = document.querySelector('.check-Btn')
+    const userInput = document.querySelector('.user-input')
+    const history = document.querySelector('.history')
+
+    // window.onload(() => {
+    // })
+
+    let answerArr = []
+    let inputArr = []
+    //1.開始按鈕。產生四個不重複的數字
+    startBtn.addEventListener('click', function () {
+
+      startBtn.setAttribute('disabled', 'disabled')
+      //按鈕取消disabled
+      clearBtn.removeAttribute('disabled')
+      answerBtn.removeAttribute('disabled')
+      checkBtn.removeAttribute('disabled')
+
+      while (answerArr.length < 4) {
+        let num = Math.floor(Math.random() * 10)
+        if (!answerArr.includes(num)) { answerArr.push(num) }
+      }
+    })
+
+    //2.放棄重來按鈕，頁面重新整理
+    clearBtn.addEventListener('click', () => {
+      window.location.reload()
+    })
+
+    //3.看答案
+    answerBtn.addEventListener('click', () => {
+      let answer = ''
+      answerArr.forEach((el) => {
+        answer += el.toString()
+      })
+      alert(`答案為:${answer}`)
+    })
+
+    //4.猜答案，並呈現歷史  
+    checkBtn.addEventListener('click', function () {
+      //userinput字串轉陣列 "1234"→［'1','2','3','4'］→[1,2,3,4]
+      //foreach寫法↓
+      //檢查input內容不能有其他內容
+      let isNum = true
+      Array.from(userInput.value).forEach((num) => {
+        if (!Number.isInteger(Number(num))) { isNum = false }
+        else { inputArr.push(Number(num)) }
+      })
+      //檢查input內容不能有重複數字
+      let inputArr_1 = Array.from(userInput.value).reduce((acc, current) => {
+        if (!acc.includes(current)) { acc.push(current) }
+        return acc
+      }, [])
+
+      if (isNum && inputArr.length == 4 && inputArr_1.length == 4) {
+        //判斷交集
+        let intersect = answerArr.filter((x) =>
+          inputArr.includes(x)
+        )
+        let a = intersect.filter((x) => answerArr.indexOf(x) == inputArr.indexOf(x)).length
+        let b = intersect.length - a
+
+        //歷史紀錄顯示
+        let historyP = document.createElement('p')
+
+        let historyAB = document.createElement('span')
+        historyAB.innerHTML = `${a}A${b}B`
+        if (historyAB.innerHTML != '4A0B') { historyAB.classList.add('badge', 'text-bg-danger') }
+        else {
+          historyAB.classList.add('badge', 'text-bg-success')
+          setTimeout(() => {
+            alert('恭喜過關')
+          }, 500);
+        }
+
+        let historyInput = document.createElement('span')
+        let input = ''
+        inputArr.forEach((el) => { input += el })
+        historyInput.innerHTML = ` ${input}`
+
+        historyP.append(historyAB, historyInput)
+        history.append(historyP)
+      }
+      else {
+        alert('請重新輸入')
+      }
+      userInput.value = ''
+      inputArr = []
+    })
+  </script>
+</body>
+
+</html>
