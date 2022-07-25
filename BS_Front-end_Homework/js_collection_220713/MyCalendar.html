@@ -31,22 +31,24 @@
             <div class="main-header">
                 <div class="month-area">
                     <i onclick="preMonth()" class="fa-solid fa-angle-left"></i>
-                    <p id="month" class="month"></p>
+                    <h1 id="month" class="month"></h1>
                     <i onclick="nextMonth()" class="fa-solid fa-angle-right"></i>
                 </div>
                 <div class="year-area">
-                    <p id="year" class="year"></p>
+                    <i onclick="preYear()" class="fa-solid fa-angles-up"></i>
+                    <h1 id="year" class="year"></h1>
+                    <i onclick="nextYear()" class="fa-solid fa-angles-down"></i>
                 </div>
             </div>
-
+            
             <div class="weeks-list">
-                <div class="week">SUN</div>
-                <div class="week">MON</div>
-                <div class="week">TUE</div>
-                <div class="week">WED</div>
-                <div class="week">THR</div>
-                <div class="week">FRI</div>
-                <div class="week">SAT</div>
+                <h2 class="week">SUN</h2>
+                <h2 class="week">MON</h2>
+                <h2 class="week">TUE</h2>
+                <h2 class="week">WED</h2>
+                <h2 class="week">THR</h2>
+                <h2 class="week">FRI</h2>
+                <h2 class="week">SAT</h2>
             </div>
             <div class="days-list" id="days-list">
                 <!-- <div class="day">1
@@ -201,6 +203,18 @@
             mainDate.setMonth(mainDate.getMonth() + 1)
             renderCalendar()
         }
+        //上一年按鈕
+        function preYear(){
+            mainDate.setFullYear(mainDate.getFullYear()-1)
+            renderCalendar()
+        }
+        
+        //下一年按鈕
+        function nextYear(){
+            mainDate.setFullYear(mainDate.getFullYear()+1)
+            renderCalendar()
+        }
+
 
         function showSchedule() {
             let _divList = document.querySelectorAll('[data-id]')
@@ -272,7 +286,6 @@
 
         function backToday() {
             location.reload()
-            renderCalendar()
         }
 
 
