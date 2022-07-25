@@ -1,0 +1,133 @@
+body {
+  font-family: "Cormorant SC", serif;
+  background: rgb(235, 249, 250);
+  height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar {
+  width: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sidebar .back-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  text-align: center;
+  background-color: rgb(97, 136, 169);
+  color: #fff;
+  border: 0;
+  margin: auto;
+}
+.sidebar .quotes {
+  display: flex;
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+}
+
+.main-header {
+  width: 875px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+  color: rgb(44, 65, 82);
+}
+
+.month-area {
+  display: flex;
+  width: 65%;
+  justify-content: space-between;
+  align-items: center;
+}
+.month-area i {
+  width: 10%;
+  font-size: 2em;
+}
+.month-area .month {
+  font-size: 4em;
+  text-align: center;
+  width: 80%;
+  margin-bottom: 0;
+}
+
+.year-area {
+  display: flex;
+}
+.year-area .year {
+  font-size: 3em;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.weeks-list {
+  display: flex;
+  width: 875px;
+  margin: auto;
+  height: 1.3em;
+  font-size: 2em;
+  line-height: 1.3em;
+  justify-content: center;
+}
+
+.week {
+  width: 125px;
+  color: #fff;
+  background-color: rgb(97, 136, 169);
+  text-align: center;
+}
+
+.days-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 875px;
+  margin: auto;
+  color: rgb(44, 65, 82);
+}
+.days-list ul {
+  list-style-type: square;
+  font-size: 10px;
+}
+
+.day {
+  width: 121px;
+  background-color: rgb(200, 245, 255);
+  padding: 10px;
+  height: 70px;
+  overflow: hidden;
+  display: flex;
+  margin: 2px;
+  box-sizing: border-box;
+}
+
+.day:hover {
+  transform: scale(1);
+  filter: drop-shadow(5px 5px 3px rgb(97, 136, 169));
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.modal-title {
+  color: rgb(97, 136, 169);
+}
+
+.modal-input {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgb(44, 65, 82);
+  background-color: rgb(97, 136, 169);
+}/*# sourceMappingURL=calendar_style.css.map */
