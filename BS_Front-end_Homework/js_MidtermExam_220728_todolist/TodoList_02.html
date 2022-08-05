@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <style>
+        button {
+            width: 75px;
+            height: 35px;
+        }
+
+        .container {
+            padding-top: 20px;
+            height: 100vh;
+            background-image: url(https://cdn.discordapp.com/attachments/989106934022017074/1004382681506791465/IMG_4782.jpg);
+            background-size:contain;
+            /* background-repeat: no-repeat; */
+            width: 590px;
+        }
+
+        h1 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: #fff;
+        }
+
+        .add-area,
+        .item {
+            /* font-family: 'Raleway', sans-serif; */
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .add-area {
+            margin: auto;
+            margin-bottom: 20px;
+            width: 550px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .add-area input {
+            text-align: center;
+            border-radius: 10px;
+            height: 35px;
+            width: 80%;
+            border: 0;
+        }
+
+        .todo-list {
+            border-radius: 20px;
+            background-color: #fff;
+            opacity: .8;
+
+            width: 550px;
+            height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin: auto;
+        }
+
+        .item {
+            list-style-type: none;
+        }
+
+
+        .item .edit-input {
+            border: 0;
+            border-bottom: 2px solid #000;
+            background-color: #fff;
+            height: 35px;
+        }
+
+        .item .edit-input:hover {
+            background-color: antiquewhite;
+        }
+
+        /* 整個捲軸 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+
+        /*捲軸尚未滑到的軌道*/
+        ::-webkit-scrollbar-track-piece {
+            background: #fff;
+        }
+
+        /* 滑動的區塊 */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(9, 109, 155);
+            border:1px solid #fff;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Todo List</h1>
+        <div class="add-area">
+            <input id="add_input"  type="text" placeholder="To do something...">
+            <button class="btn btn-primary " onclick="addItem()">Add</button>
+        </div>
+
+        <ul id="todo_list" class="todo-list">
+            <!-- colone產出 -->
+        </ul>
+
+        <template class="template">
+            <li class="item m-1 text-center">
+                <input class="checkbox" type="checkbox">
+                <input class="edit-input w-50" type="text" disabled></input>
+                <button id="edit_btn" class="btn btn-warning">Edit</button>
+                <!-- <button id="save_btn" class="btn btn-success">Save</button> -->
+                <button id="delete_btn" class="btn btn-danger">Delete</button>
+            </li>
+        </template>
+    </div>
+
+    <script>
+        //宣告
+        let mainKey = 'TodoList'
+        //DOM
+        const addInput = document.querySelector('#add_input')
+        const todoList = document.querySelector('#todo_list')
+
+        //window.onload()
+        window.onload = function () {
+            init()
+        }
+        //初始化
+        function init() {
+            showList()
+        }
+
+        //function
+        function showList() {
+            todoList.innerText = ''
+
+            if (localStorage.getItem(mainKey) != null) {
+
+                let todoArr = JSON.parse(localStorage.getItem(mainKey))
+
+                // console.log(todoArr)
+                todoArr.forEach((item, idx) => {
+                    let template = document.querySelector('.template')
+                    let clone = template.content.cloneNode(true)
+
+                    clone.querySelector('.edit-input').value = item.title
+                    clone.querySelector('li').setAttribute('index', `${idx}`)
+
+                    if (item.check) {
+                        clone.querySelector('.checkbox').setAttribute('checked', 'checked')
+                    }
+
+                    clone.querySelector('.checkbox').onclick = function () { check(idx) }
+                    clone.querySelector('#edit_btn').onclick = function () { editItem(idx) }
+                    clone.querySelector('#delete_btn').onclick = function () { deleteItem(idx) }
+                    todoList.appendChild(clone)
+                })
+
+            }
+
+        }
+        //新增 代辦清單
+        function addItem() {
+            if (addInput.value != '') {
+                let todoEvent = addInput.value
+                let todoObj = { title: todoEvent, check: '' }
+                let todoArr = []
+
+                if (localStorage.getItem(mainKey) == null) {
+                    todoArr.push(todoObj)
+                } else {
+                    todoArr = JSON.parse(localStorage.getItem(mainKey))
+                    todoArr.push(todoObj)
+                }
+                localStorage.setItem(mainKey, JSON.stringify(todoArr))
+                showList()
+                addInput.value = ''
+            }
+        }
+        //編輯 代辦清單
+        function editItem(index) {
+            let mainItem = document.querySelector(`[index="${index}"]`)
+            console.log(mainItem)
+            let maimBtn = mainItem.querySelector('#edit_btn')
+            console.log(maimBtn)
+            let mainInput = mainItem.querySelector('.edit-input')
+            console.log(mainInput)
+            //點擊修改
+            if (maimBtn.innerText == 'Edit') {
+                maimBtn.innerText = 'Save'
+                maimBtn.classList.remove('btn-warning')
+                maimBtn.classList.add('btn-success')
+
+                mainInput.removeAttribute('disabled')
+            }
+            //點擊儲存
+            else if (maimBtn.innerText == 'Save') {
+                maimBtn.innerText = 'Edit'
+                maimBtn.classList.remove('btn-success')
+                maimBtn.classList.add('btn-warning')
+                saveItem(index)
+                mainInput.setAttribute('disabled', 'disabled')
+            }
+        }
+        //保存修改的 代辦清單
+        function saveItem(index) {
+            let mainItem = document.querySelector(`[index="${index}"]`)
+            let mainInput = mainItem.querySelector('.edit-input')
+            console.log(mainItem)
+
+            let todoArr = JSON.parse(localStorage.getItem(mainKey))
+            todoArr[index].title = mainInput.value
+
+            localStorage.setItem(mainKey, JSON.stringify(todoArr))
+        }
+        //刪除 代辦清單
+        function deleteItem(index) {
+            let todoArr = JSON.parse(localStorage.getItem(mainKey))
+            todoArr.splice(index, 1)
+
+            localStorage.setItem(mainKey, JSON.stringify(todoArr))
+            showList()
+        }
+
+        //checkbox
+        function check(index) {
+            let mainItem = document.querySelector(`[index="${index}"]`)
+            let mainCheck = mainItem.querySelector('.checkbox')
+
+            let todoArr = JSON.parse(localStorage.getItem(mainKey))
+            todoArr[index].check = mainCheck.checked
+            localStorage.setItem(mainKey, JSON.stringify(todoArr))
+        }
+
+
+    </script>
+
+</body>
+
+</html>
