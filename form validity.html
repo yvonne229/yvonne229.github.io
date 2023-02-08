@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: inline-block;
+        }
+        input.valid {
+            border: 3px solid green;
+            background-color: #6bdd6b;
+        }
+
+        input.invalid {
+            border: 3px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="core">Core</label>
+            <input type="text" id="core" class="input-edit" required>
+        </div>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" class="input-edit" required>
+        </div>
+    </form>
+
+    <script>
+        let inputs = document.querySelectorAll('.input-edit')
+
+        inputs.forEach(input=>{
+            input.addEventListener('input',function(){                
+                if(input.checkValidity()){
+                    console.log(true)
+                    input.classList.add('valid')
+                    input.classList.remove('invalid')
+                }else{
+                    console.log(false)
+                    input.classList.remove('valid')
+                    input.classList.add('invalid')
+
+                    if(input.validity.valueMissing){
+                        input.setCustomValidity("此欄位為必填，請重新確認'")
+                        return
+                    }
+                    if(input.validity.typeMismatch){
+                        input.setCustomValidity("格式錯誤，請重新確認")
+                        return
+                    }
+                }
+            })
+        })
+
+
+
+    </script>
+</body>
+
+</html>
